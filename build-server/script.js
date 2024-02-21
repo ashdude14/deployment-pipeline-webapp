@@ -5,10 +5,10 @@ const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 const mime = require('mime-types');
 
 const s3Client = new S3Client({
-    region: "ap-south-1",
+    region: process.env.AWS_REGION,
     credentials: {
-        accessKeyId: 'AKIAXXJWDYFACXZK3JFD',
-        secretAccessKey: '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'
+        accessKeyId: AWS_ACCESS_KEY_ID,
+        secretAccessKey: AWS_SECRET_ACCESS_KEY
     }
 });
 
