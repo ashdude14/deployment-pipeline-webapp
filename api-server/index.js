@@ -10,8 +10,8 @@ app.use(express.json());
 const ecsClient=new ECSClient({
     region: process.env.AWS_REGION,
     credentials: {
-        accessKeyId: AWS_ACCESS_KEY_ID,
-        secretAccessKey: AWS_SECRET_ACCESS_KEY
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.envAWS_SECRET_ACCESS_KEY
     }
 
 })
