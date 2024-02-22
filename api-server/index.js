@@ -2,7 +2,7 @@ const express=require('express')
 const {generateSlug}=require('random-word-slugs')
 const {ECSClient,RunTaskCommand} =require('@aws-sdk/client-ecs')
 const app=express();
-
+require('dotenv').config()
 const PORT=9000;
 
 app.use(express.json());
@@ -11,7 +11,7 @@ const ecsClient=new ECSClient({
     region: process.env.AWS_REGION,
     credentials: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.envAWS_SECRET_ACCESS_KEY
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 
 })
@@ -56,3 +56,4 @@ app.post('/project',async (req,res)=>{
 })
 
 app.listen(PORT,()=>{console.log(`API Server running on Port: ${PORT}`)})
+console.log(process.env.AWS_REGION,process.env.AWS_ACCESS_KEY_ID,process.env.AWS_SECRET_ACCESS_KEY,process.env.ARN_CLUSTER,process.env.ARN_TASK)
